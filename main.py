@@ -9,16 +9,13 @@ def iterateOverFiles(path,index):
         fullPath = pathBeggining + filename
 
         if filename.endswith(".DS_Store") == False:
-            readFile1(fullPath,index,str(outputNumber))
+            readFile(fullPath,index,str(outputNumber))
             outputNumber += 1
 
-def readFile1(input,index,outputNumber):
+def readFile(input,index,outputNumber,delimeter):
     with open(input) as originalFile:
-        store = []
         for i in originalFile:
-            list = i.strip().split(" ")
-            print list[0]
-
+            list = i.strip().split(delimeter)
             createFiles(outputNumber,list[index])
 
 def createFiles(number,appendedText):
