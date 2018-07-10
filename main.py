@@ -2,12 +2,10 @@ import os
 
 
 def iterateOverFiles(path,index):
-
     outputNumber = 1
     for filename in os.listdir(path):
         pathBeggining = path + '/'
         fullPath = pathBeggining + filename
-
         if filename.endswith(".DS_Store") == False:
             readFile(fullPath,index,str(outputNumber))
             outputNumber += 1
