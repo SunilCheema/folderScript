@@ -1,7 +1,7 @@
 import os
 
 
-def iterateOverFiles(path,index):
+def iterateOverFiles(path,index,delimeter):
     outputNumber = 1
     for filename in os.listdir(path):
         pathBeggining = path + '/'
@@ -11,11 +11,10 @@ def iterateOverFiles(path,index):
             outputNumber += 1
 
 
-def readFile(input,index,outputNumber):
+def readFile(input,index,outputNumber,delimeter):
     with open(input) as originalFile:
-        store = []
         for i in originalFile:
-            list = i.strip().split(" ")
+            list = i.strip().split(delimeter)
             createFiles(outputNumber,list[index])
 
 
@@ -26,4 +25,4 @@ def createFiles(number,appendedText):
         myfile2.write(' ' + appendedText)
 
 
-iterateOverFiles('/Users/sunilcheema/Documents/pyTest',1)
+iterateOverFiles('/Users/sunilcheema/Documents/pyTest',1,' ')
